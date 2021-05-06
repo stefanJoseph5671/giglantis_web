@@ -1,2 +1,2 @@
-# giglantis_web
+# Giglantis
 Giglantis Website Landing Page
