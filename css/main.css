@@ -248,3 +248,71 @@ input:focus {
     top: 20px;
     left: 96px;
 }
+
+.solona-bg {
+  background-color: transparent;
+    bottom: 428px;
+    height: 89px;
+    position: absolute;
+    right: 242px;
+    width: 89px;
+}
+
+.solona-logo {
+  bottom: 429px;
+  height: 89px;
+  position: absolute;
+  right: 250px;
+  width: 72px;
+}
+
+.solona-bg-mob {
+  background-color: transparent;
+  bottom: 242px;
+  height: 26px;
+  position: absolute;
+  right: 50px;
+  width: 26px;
+}
+
+.solona-logo-mob {
+  bottom: 242px;
+  height: 26px;
+  position: absolute;
+  right: 52px;
+  width: 22px;
+}
+
+.solona-bg-tab {
+  background-color: transparent;
+  bottom: 346px;
+  height: 44px;
+  position: absolute;
+  right: calc(23.92% - 10px);
+  width: 44px;
+}
+
+.solona-logo-tab {
+  bottom: 346px;
+  height: 44px;
+  position: absolute;
+  right: calc(23.92% - 6px);
+  width: 36px;
+}
+
+.solona-bg-big {
+  background-color: transparent;
+  bottom: 370px;
+  height: 88px;
+  position: absolute;
+  right: calc(28.55% - 25px);
+  width: 88px;
+}
+
+.solona-logo-big {
+    bottom: 370px;
+    height: 88px;
+    position: absolute;
+    right: calc(28.55% - 20px);
+    width: 75px;
+}
