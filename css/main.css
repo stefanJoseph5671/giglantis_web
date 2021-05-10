@@ -316,3 +316,19 @@ input:focus {
     right: calc(28.55% - 20px);
     width: 75px;
 }
+
+.p-logo-mob {
+bottom: 1px;
+    height: 16px;
+    position: absolute;
+    right: calc(47.54% - 6px);
+    width: 12px;
+}
+
+.p-logo-tab {
+bottom: 2px;
+    height: 27px;
+    position: absolute;
+    right: calc(47.54% - 11px);
+    width: 25px;
+}
