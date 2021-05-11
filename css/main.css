@@ -18,13 +18,15 @@
 
 .header-btn {
   border: 1px solid rgba(2, 123, 151, 1) !important;
-  box-shadow: 0px 0px 5px rgb(0 0 0 / 16%);
+  box-shadow: 0px 0px 5px rgb(0 0 0 / 12%);
+  border-radius: 7px !important;
 }
 
 .header-btn-text {
   color: rgb(2 123 151) !important;
   font-family: "Roboto", Helvetica !important;
   font-size: 12px !important;
+  font-weight: 400 !important;
 }
 
 .product-text {
@@ -449,9 +451,73 @@ bottom: 2px;
   top: calc(50.00% - 16px);
   width: 30px;
 }
+
+::placeholder {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  padding-left: 10px !important;
+}
   
 }
 
 .menu-height {
   height: 415px !important;
+}
+
+::placeholder {
+  color: rgba(2,123,151,1);
+  font-family: 'Mukta Malar',Helvetica;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  opacity: .42;
+  padding-left: 20px;
+}
+
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #c5c5c5;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #0ae;
+  height: 200px;
+  background-image: -webkit-gradient(
+    linear,
+    0 0,
+    0 100%,
+    color-stop(0.5, rgba(255, 255, 255, 0.2)),
+    color-stop(0.5, transparent),
+    to(transparent)
+  );
+}
+
+.beta-btn {
+  border-radius: 7px !important;
+    right: 10px !important;
+    top: 7px !important;
+}
+
+.beta-btn-mob {
+  border-radius: 7px !important;
+  right: 5px !important;
+  top: 15px !important;
+}
+
+.beta-btn-tab {
+  border-radius: 7px !important;
+  right: 10px !important;
+  top: 20px !important;
+}
+
+.beta-btn-big {
+  border-radius: 7px !important;
+    right: 10px !important;
+    top: 20px !important;
 }
