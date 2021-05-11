@@ -247,6 +247,43 @@ input:focus {
     position: relative;
     top: 20px;
     left: 96px;
+    width: 200px;
+}
+
+.solona-logo-featured {
+    position: absolute;
+    right: calc(29.29% - 205px);
+    top: calc(34.20% - 33px);
+    width: 112px;
+}
+
+.solona-logo-featured-mob {
+    position: absolute;
+    right: calc(29.29% - 50px);
+    top: calc(34.20% - 14px);
+    width: 30px;
+}
+
+.solona-logo-featured-norm {
+    position: absolute;
+    right: calc(32.51% - 105px);
+    top: calc(33.90% - 17px);
+    width: 60px;
+}
+
+.p-logo-mob {
+    height: 22px;
+    position: absolute;
+    right: calc(47.54% - 8px);
+    width: 18px;
+    top: -1px;
+}
+
+.solona-logo-featured-big {
+  position: absolute;
+  right: calc(35.18% - 245px);
+  top: calc(37.98% - 38px);
+  width: 122px;
 }
 
 .solona-bg {
@@ -331,4 +368,90 @@ bottom: 2px;
     position: absolute;
     right: calc(47.54% - 11px);
     width: 25px;
+}
+
+.back-to-top-btn {
+  background-color: white;
+    border-radius: 53px;
+    box-shadow: 0 2px 10px rgb(0 0 0 / 16%);
+    height: 106px;
+    position: fixed;
+    right: 56px;
+    bottom: 20px;
+    width: 106px;
+}
+
+.back-to-top-btn-img {
+  background-color: transparent;
+  height: 53px;
+  position: absolute;
+  right: calc(50.00% - 26px);
+  top: calc(50.00% - 26px);
+  width: 53px;
+}
+
+
+@media (min-width: 1200px) and (max-width: 1600px) {
+  .back-to-top-btn {
+    height: 60px;
+    width: 60px;
+}
+.back-to-top-btn-img {
+  height: 35px;
+  right: calc(50.00% - 18px);
+  top: calc(50.00% - 20px);
+  width: 35px;
+}
+  
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  
+  .back-to-top-btn {
+    height: 60px;
+    width: 60px;
+}
+.back-to-top-btn-img {
+  height: 35px;
+  right: calc(50.00% - 18px);
+  top: calc(50.00% - 20px);
+  width: 35px;
+}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .back-to-top-btn {
+    height: 50px;
+    right: 15px;
+    width: 50px;
+}
+.back-to-top-btn-img {
+  height: 26px;
+  right: calc(50.00% - 14px);
+  top: calc(50.00% - 15px);
+  width: 26px;
+}
+
+  
+}
+
+
+@media (max-width: 767px) {
+  
+  .back-to-top-btn {
+    height: 50px;
+    right: 15px;
+    width: 50px;
+}
+.back-to-top-btn-img {
+  height: 30px;
+  right: calc(50.00% - 16px);
+  top: calc(50.00% - 16px);
+  width: 30px;
+}
+  
+}
+
+.menu-height {
+  height: 415px !important;
 }

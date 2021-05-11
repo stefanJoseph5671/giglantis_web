@@ -112,3 +112,93 @@ function ShowOnScroll() {
     document.getElementById("menuItems").style.display = "none";
     document.getElementById("mobileMenu").style.width = "129px";
   }
+
+  function goToWhyGiglantis() {
+    if (window.innerWidth > 1600) {
+      window.scrollTo({ top: 1500, behavior: 'smooth' });
+    } else {
+      window.scrollTo({ top: 1134, behavior: 'smooth' });
+    }
+  }
+
+  function goToProducts() {
+    if (window.innerWidth > 1600) {
+      window.scrollTo({ top: 2700, behavior: 'smooth' });
+    }
+    else {
+      window.scrollTo({ top: 2000, behavior: 'smooth' });
+    }
+  }
+
+  function goToFeatures() {
+    if (window.innerWidth > 1600) {
+      window.scrollTo({ top: 4500, behavior: 'smooth' });
+    }
+    else {
+      window.scrollTo({ top: 3600, behavior: 'smooth' });
+    }
+  }
+
+  function goToAquaTokens() {
+    if (window.innerWidth > 1600) {
+      window.scrollTo({ top: 6000, behavior: 'smooth' });
+    }
+    else {
+      window.scrollTo({ top: 5000, behavior: 'smooth' });
+    }
+  }
+
+  function goToPartners() {
+    if (window.innerWidth > 1600) {
+      window.scrollTo({ top: 7200, behavior: 'smooth' });    
+    }
+    else {
+      window.scrollTo({ top: 5900, behavior: 'smooth' });
+    }
+   
+  }
+
+  function goToRoadMap() {
+    if (window.innerWidth > 1600) {
+      window.scrollTo({ top: 9000, behavior: 'smooth' });
+    }
+    else {
+      window.scrollTo({ top: 7300, behavior: 'smooth' });
+    }
+    
+  }
+
+  function goToWhyGiglantisMob() {
+    window.scrollTo({ top: 410, behavior: 'smooth' });
+    closeMobileMenu();
+  }
+
+  function goToProductsMob() {
+    window.scrollTo({ top: 650, behavior: 'smooth' });
+    closeMobileMenu();
+  }
+
+  function goToFeaturesMob() {
+    window.scrollTo({ top: 1450, behavior: 'smooth' });
+    closeMobileMenu();
+  }
+
+  function goToAquaTokensMob() {
+    window.scrollTo({ top: 2000, behavior: 'smooth' });
+    closeMobileMenu();
+  }
+
+  function goToPartnersMob() {
+    window.scrollTo({ top: 2600, behavior: 'smooth' });
+    closeMobileMenu();
+  }
+
+  function goToRoadMapMob() {
+    window.scrollTo({ top: 3000, behavior: 'smooth' });
+    closeMobileMenu();
+  }
+
+  function goToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    closeMobileMenu();
+  }
