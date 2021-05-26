@@ -202,3 +202,34 @@ function ShowOnScroll() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     closeMobileMenu();
   }
+
+  scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+  var myScrollFunc = function() {
+  var y = window.scrollY;
+  if (y >= 700) {
+    scrollToTopBtn.className = "back-to-top-btn show-btn";
+  } else {
+    scrollToTopBtn.className = "back-to-top-btn hide-btn";
+  }
+};
+
+window.addEventListener("scroll", myScrollFunc);
+
+function onLearnClick() {
+  var displayValue = document.getElementById('learnDropdownMenu').style.display;
+  if (displayValue === 'block') {
+    document.getElementById('learnDropdownMenu').style.display='none';
+  } else {
+    document.getElementById('learnDropdownMenu').style.display='block';
+  }
+}
+
+function onLearnClickBigScreen() {
+  var displayValue = document.getElementById('learnDropdownMenuBig').style.display;
+  if (displayValue === 'block') {
+    document.getElementById('learnDropdownMenuBig').style.display='none';
+  } else {
+    document.getElementById('learnDropdownMenuBig').style.display='block';
+  }
+}
