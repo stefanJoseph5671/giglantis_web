@@ -1,235 +1,163 @@
-function ShowOnScroll() {
-    this.toShow = [];
-    this.nextEventY = undefined;
-  }
+// Core Features Slide 
+var coreFeaturesSlideIndex = 1;
+showCoreFeaturedSlides(coreFeaturesSlideIndex);
 
-  ShowOnScroll.prototype.show = function (e) {
-    e.style.display = "";
-  };
+function coreFeaturedSlidesNavigation(n) {
+  showCoreFeaturedSlides(coreFeaturesSlideIndex += n);
+}
 
-  ShowOnScroll.prototype.hide = function (e) {
-    e.style.display = "none";
-  };
+function currentCoreFeaturedSlide(n) {
+  showCoreFeaturedSlides(coreFeaturesSlideIndex = n);
+}
 
-  ShowOnScroll.prototype.getTop = function (e) {
-    if (e.Top != undefined && e.Top != 0) {
-      return e.Top;
+function showCoreFeaturedSlides(n) {
+  var i;
+  var coreFeaturedSlides = document.getElementsByClassName("core-features-row");
+  var coreFeaturedSlidesPagination = document.getElementsByClassName("core-features-pagination");
+  if (n > coreFeaturedSlides.length) {
+      coreFeaturesSlideIndex = 1
+    }    
+  if (n < 1) {
+      coreFeaturesSlideIndex = coreFeaturedSlides.length
     }
-    var top = 0;
-    var iter = e;
-    do {
-      top += iter.offsetTop || 0;
-      iter = iter.offsetParent;
-    } while (iter);
-    e.Top = top;
-    return top;
-  };
-
-  ShowOnScroll.prototype.onScroll = function () {
-    var screenBottom = window.pageYOffset + window.innerHeight;
-    if (this.nextEventY == undefined || this.nextEventY > screenBottom) {
-      return;
-    }
-    this.nextEventY = undefined;
-    for (var i = 0; i < this.toShow.length; i++) {
-      var e = this.toShow[i];
-      var top = this.getTop(e);
-      if (top < screenBottom) {
-        this.show(e);
-        this.toShow.shift();
-        i--;
-      } else {
-        this.nextEventY = top;
-        break;
-      }
-    }
-  };
-
-  ShowOnScroll.prototype.resetScrolling = function () {
-    // Clear state
-    var screenBottom = window.pageYOffset + window.innerHeight;
-    for (var i = 0; i < this.toShow.length; i++) {
-      var e = this.toShow[i];
-      this.show(e);
-    }
-    this.toShow = [];
-    this.nextEventY == undefined;
-
-    // Collect items
-    var itemsToShowOnScroll = Array.prototype.slice.call(document.getElementsByTagName("*"));
-    itemsToShowOnScroll = itemsToShowOnScroll.filter(function (e) {
-      return e.getAttribute("show-on-scroll") != undefined;
-    });
-    var getTop = this.getTop;
-    itemsToShowOnScroll.sort(function (a, b) {
-      return getTop(a) - getTop(b);
-    });
-    for (var i = 0; i < itemsToShowOnScroll.length; i++) {
-      var e = itemsToShowOnScroll[i];
-      var top = this.getTop(e);
-      if (top < screenBottom) {
-        continue;
-      }
-      this.toShow.push(e);
-      this.hide(e);
-      this.nextEventY = this.nextEventY != undefined ? this.nextEventY : top;
-    }
-  };
-
-  ShowOnScroll.prototype.handleEvent = function (e) {
-    switch (e.type) {
-      case "scroll":
-        this.onScroll();
-        break;
-      case "resize":
-        this.resetScrolling();
-        break;
-    }
-  };
-
-  ShowOnScroll.prototype.init = function () {
-    this.resetScrolling();
-    window.addEventListener("scroll", this);
-    window.addEventListener("resize", this);
-  };
-
-  // After anima-src
-  setTimeout(function () {
-    var instShowOnScroll = new ShowOnScroll();
-    instShowOnScroll.init();
-  }, 250);
-
-  function openMobileMenu() {
-    document.getElementById("openMenuBtn").style.display = "none";
-    document.getElementById("closeMenuBtn").style.display = "block";
-    document.getElementById("menuItems").style.display = "flex";
-    document.getElementById("mobileMenu").style.width = "100vw";
+  for (i = 0; i < coreFeaturedSlides.length; i++) {
+      coreFeaturedSlides[i].classList.add("hide-content"); 
   }
-  
-  function closeMobileMenu() {
-    document.getElementById("openMenuBtn").style.display = "block";
-    document.getElementById("closeMenuBtn").style.display = "none";
-    document.getElementById("menuItems").style.display = "none";
-    document.getElementById("mobileMenu").style.width = "129px";
+  for (i = 0; i < coreFeaturedSlidesPagination.length; i++) {
+      coreFeaturedSlidesPagination[i].className = coreFeaturedSlidesPagination[i].className.replace(" pagination-active", "");
+      coreFeaturedSlides[i].classList.remove("show-content"); 
   }
+    coreFeaturedSlides[coreFeaturesSlideIndex-1].classList.add("show-content");
+  coreFeaturedSlidesPagination[coreFeaturesSlideIndex-1].className += " pagination-active";
+}
 
-  function goToWhyGiglantis() {
-    if (window.innerWidth > 1600) {
-      window.scrollTo({ top: 1500, behavior: 'smooth' });
-    } else {
-      window.scrollTo({ top: 1134, behavior: 'smooth' });
+// As Featured In Slide
+var featuredSlideIndex = 1;
+showFeaturedSlides(featuredSlideIndex);
+
+function featuredSlidesNavigation(n) {
+  showFeaturedSlides(featuredSlideIndex += n);
+}
+
+function currentFeaturedSlide(n) {
+  showFeaturedSlides(featuredSlideIndex = n);
+}
+
+function showFeaturedSlides(n) {
+  var i;
+  var featuredSlides = document.getElementsByClassName("featured-container");
+  var featuredSlidesPagination = document.getElementsByClassName("featured-pagination");
+  if (n > featuredSlides.length) {
+      featuredSlideIndex = 1
+    }    
+  if (n < 1) {
+      featuredSlideIndex = featuredSlides.length
     }
+  for (i = 0; i < featuredSlides.length; i++) {
+      featuredSlides[i].style.display = "none";  
   }
+  for (i = 0; i < featuredSlidesPagination.length; i++) {
+      featuredSlidesPagination[i].className = featuredSlidesPagination[i].className.replace(" pagination-active", "");
+  }
+  featuredSlides[featuredSlideIndex-1].style.display = "flex";  
+  featuredSlidesPagination[featuredSlideIndex-1].className += " pagination-active";
+}
 
-  function goToProducts() {
-    if (window.innerWidth > 1600) {
-      window.scrollTo({ top: 2700, behavior: 'smooth' });
+// Investors Slide
+var investorsSlideIndex = 1;
+showInvestorSlides(investorsSlideIndex);
+
+function investorSlidesNavigation(n) {
+  showInvestorSlides(investorsSlideIndex += n);
+}
+
+function currentFeaturedSlide(n) {
+  showInvestorSlides(investorsSlideIndex = n);
+}
+
+function showInvestorSlides(n) {
+  var i;
+  var investorSlides = document.getElementsByClassName("investors-container");
+  var investorSlidesPagination = document.getElementsByClassName("investors-pagination");
+  if (n > investorSlides.length) {
+      investorsSlideIndex = 1
+    }    
+  if (n < 1) {
+      investorsSlideIndex = investorSlides.length
     }
-    else {
-      window.scrollTo({ top: 2000, behavior: 'smooth' });
-    }
+  for (i = 0; i < investorSlides.length; i++) {
+      investorSlides[i].style.display = "none";  
   }
-
-  function goToFeatures() {
-    if (window.innerWidth > 1600) {
-      window.scrollTo({ top: 4500, behavior: 'smooth' });
-    }
-    else {
-      window.scrollTo({ top: 3600, behavior: 'smooth' });
-    }
+  for (i = 0; i < investorSlidesPagination.length; i++) {
+      investorSlidesPagination[i].className = investorSlidesPagination[i].className.replace(" pagination-active", "");
   }
+  investorSlides[investorsSlideIndex-1].style.display = "flex";  
+  investorSlidesPagination[investorsSlideIndex-1].className += " pagination-active";
+}
 
-  function goToAquaTokens() {
-    if (window.innerWidth > 1600) {
-      window.scrollTo({ top: 6000, behavior: 'smooth' });
-    }
-    else {
-      window.scrollTo({ top: 5000, behavior: 'smooth' });
-    }
-  }
+// Development Timeline
+var developmentTimelineRange = document.getElementById("developmentTimelineRange");
 
-  function goToPartners() {
-    if (window.innerWidth > 1600) {
-      window.scrollTo({ top: 7200, behavior: 'smooth' });    
-    }
-    else {
-      window.scrollTo({ top: 5900, behavior: 'smooth' });
-    }
-   
-  }
+document.getElementById("previousYear").classList.add("show-content");
+document.getElementById("previousYearQ3").classList.add("show-content");
+document.getElementById("previousYearQ4").classList.add("show-content");
+document.getElementById("currentYear").classList.add("show-content");
+document.getElementById("currentYearQ1").classList.add("show-content");
+document.getElementById("currentYearQ2").classList.add("show-content");
+document.getElementById("currentYearQ3").classList.add("show-content");
 
-  function goToRoadMap() {
-    if (window.innerWidth > 1600) {
-      window.scrollTo({ top: 9000, behavior: 'smooth' });
-    }
-    else {
-      window.scrollTo({ top: 7300, behavior: 'smooth' });
-    }
-    
-  }
+var output = document.getElementById("demo");
+output.innerHTML = developmentTimelineRange.value;
 
-  function goToWhyGiglantisMob() {
-    window.scrollTo({ top: 410, behavior: 'smooth' });
-    closeMobileMenu();
-  }
-
-  function goToProductsMob() {
-    window.scrollTo({ top: 650, behavior: 'smooth' });
-    closeMobileMenu();
-  }
-
-  function goToFeaturesMob() {
-    window.scrollTo({ top: 1450, behavior: 'smooth' });
-    closeMobileMenu();
-  }
-
-  function goToAquaTokensMob() {
-    window.scrollTo({ top: 2000, behavior: 'smooth' });
-    closeMobileMenu();
-  }
-
-  function goToPartnersMob() {
-    window.scrollTo({ top: 2600, behavior: 'smooth' });
-    closeMobileMenu();
-  }
-
-  function goToRoadMapMob() {
-    window.scrollTo({ top: 3000, behavior: 'smooth' });
-    closeMobileMenu();
-  }
-
-  function goToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    closeMobileMenu();
-  }
-
-  scrollToTopBtn = document.getElementById("scrollToTopBtn");
-
-  var myScrollFunc = function() {
-  var y = window.scrollY;
-  if (y >= 700) {
-    scrollToTopBtn.className = "back-to-top-btn show-btn";
-  } else {
-    scrollToTopBtn.className = "back-to-top-btn hide-btn";
-  }
-};
-
-window.addEventListener("scroll", myScrollFunc);
-
-function onLearnClick() {
-  var displayValue = document.getElementById('learnDropdownMenu').style.display;
-  if (displayValue === 'block') {
-    document.getElementById('learnDropdownMenu').style.display='none';
-  } else {
-    document.getElementById('learnDropdownMenu').style.display='block';
+function hideTimelineDates() {
+  var children = document.getElementById('timelineDates').getElementsByTagName('*');
+  for (i = 0; i < children.length-1; i++){
+    children[i].classList.remove("show-content");
   }
 }
 
-function onLearnClickBigScreen() {
-  var displayValue = document.getElementById('learnDropdownMenuBig').style.display;
-  if (displayValue === 'block') {
-    document.getElementById('learnDropdownMenuBig').style.display='none';
-  } else {
-    document.getElementById('learnDropdownMenuBig').style.display='block';
-  }
+developmentTimelineRange.oninput = function() {
+  output.innerHTML = this.value;
+  console.log(this.value);
+
+  // if (this.value <= 35) { 
+  //   hideTimelineDates();
+  //   document.getElementById("previousYear").classList.add("show-content");
+  //   document.getElementById("previousYearQ3").classList.add("show-content");
+  //   document.getElementById("previousYearQ4").classList.add("show-content");
+  //   document.getElementById("currentYear").classList.add("show-content");
+  //   document.getElementById("currentYearQ1").classList.add("show-content");
+  //   document.getElementById("currentYearQ2").classList.add("show-content");
+  //   document.getElementById("currentYearQ3").classList.add("show-content");
+  // } else if (this.value = 40) {
+  //   hideTimelineDates();
+  //   document.getElementById("previousYearQ3").classList.add("show-content");
+  //   document.getElementById("previousYearQ4").classList.add("show-content");
+  //   document.getElementById("currentYear").classList.add("show-content");
+  //   document.getElementById("currentYearQ1").classList.add("show-content");
+  //   document.getElementById("currentYearQ2").classList.add("show-content");
+  //   document.getElementById("currentYearQ3").classList.add("show-content");
+  //   document.getElementById("currentYearQ4").classList.add("show-content");
+  // } else if (this.value = 45) {
+  //   hideTimelineDates();
+  //   document.getElementById("previousYearQ4").classList.add("show-content");
+  //   document.getElementById("currentYear").classList.add("show-content");
+  //   document.getElementById("currentYearQ1").classList.add("show-content");
+  //   document.getElementById("currentYearQ2").classList.add("show-content");
+  //   document.getElementById("currentYearQ3").classList.add("show-content");
+  //   document.getElementById("currentYearQ4").classList.add("show-content");
+  //   document.getElementById("currentYearQ4").classList.add("show-content");
+  //   document.getElementById("nextYear").classList.add("show-content");
+  // } else if (this.value = 100) {
+  //   hideTimelineDates();
+  //   document.getElementById("currentYear").classList.add("show-content");
+  //   document.getElementById("currentYearQ1").classList.add("show-content");
+  //   document.getElementById("currentYearQ2").classList.add("show-content");
+  //   document.getElementById("currentYearQ3").classList.add("show-content");
+  //   document.getElementById("currentYearQ4").classList.add("show-content");
+  //   document.getElementById("currentYearQ4").classList.add("show-content");
+  //   document.getElementById("nextYear").classList.add("show-content");
+  //   document.getElementById("nextYearQ1").classList.add("show-content");
+  // }
 }
+
