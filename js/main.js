@@ -98,13 +98,13 @@ function showInvestorSlides(n) {
 // Development Timeline
 var developmentTimelineRange = document.getElementById("developmentTimelineRange");
 
-document.getElementById("previousYear").classList.add("show-content");
-document.getElementById("previousYearQ3").classList.add("show-content");
-document.getElementById("previousYearQ4").classList.add("show-content");
-document.getElementById("currentYear").classList.add("show-content");
-document.getElementById("currentYearQ1").classList.add("show-content");
-document.getElementById("currentYearQ2").classList.add("show-content");
-document.getElementById("currentYearQ3").classList.add("show-content");
+// document.getElementById("previousYear").classList.add("show-content");
+// document.getElementById("previousYearQ3").classList.add("show-content");
+// document.getElementById("previousYearQ4").classList.add("show-content");
+// document.getElementById("currentYear").classList.add("show-content");
+// document.getElementById("currentYearQ1").classList.add("show-content");
+// document.getElementById("currentYearQ2").classList.add("show-content");
+// document.getElementById("currentYearQ3").classList.add("show-content");
 
 var output = document.getElementById("demo");
 output.innerHTML = developmentTimelineRange.value;
