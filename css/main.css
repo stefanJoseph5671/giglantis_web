@@ -1056,35 +1056,46 @@ body {
   }
 
   .core-features-decentralized {
-    left: 5px;
+    left: 40px;
+    transform: scale(3);
   }
 
   .core-features-payment {
-    left: -85px;
+    transform: scale(3);
+    left: -75px;
   }
 
   .core-features-platform-fee {
-    left: -80px;
+    transform: scale(2);
+    left: -65px;
   }
 
   .core-features-withdrawal {
-    left: -120px;
+    transform: scale(3);
+    left: -110px;
   }
 
   .core-features-benefit {
-    left: -80px;
+    transform: scale(3);
+    left: -75px;
+    top: 10px;
   }
 
   .core-features-protection {
-    left: -90px;
+    transform: scale(3);
+    left: -80px;
+    top: -10px;
   }
 
   .core-features-governance {
-    left: -70px;
+    transform: scale(3);
+    left: -50px;
   }
 
   .core-features-burn {
-    left: -65px;
+    transform: scale(3.8);
+    left: -45px;
+    top: -8px;
   }
 
   .product-image {
@@ -1249,6 +1260,15 @@ body {
     width: 56px;
     height: 40px;
     margin: 20px 0px 0px 12px;
+  }
+
+  .product-box {
+    width: 370px;
+  }
+
+  .product-image {
+    width: 300px;
+    transform: scale(2.4);
   }
 }
 
